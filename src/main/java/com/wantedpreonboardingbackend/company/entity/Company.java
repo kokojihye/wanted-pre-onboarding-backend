@@ -1,7 +1,13 @@
 package com.wantedpreonboardingbackend.company.entity;
 
-import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "회사")
 public class Company {
@@ -9,6 +15,7 @@ public class Company {
     @Column(name = "회사_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int companyId;
+
     @Column(name = "회사명")
     private String companyName;
     @Column(name = "국가")
@@ -19,42 +26,9 @@ public class Company {
     public Company() {}
 
     public Company(int companyId, String companyName, String companyNation, String companyRegion) {
-        super();
         this.companyId = companyId;
         this.companyName = companyName;
         this.companyNation = companyNation;
-        this.companyRegion = companyRegion;
-    }
-
-    public int getCompanyId() {
-        return companyId;
-    }
-
-    public void setCompanyId(int companyId) {
-        this.companyId = companyId;
-    }
-
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public String getCompanyNation() {
-        return companyNation;
-    }
-
-    public void setCompanyNation(String companyNation) {
-        this.companyNation = companyNation;
-    }
-
-    public String getCompanyRegion() {
-        return companyRegion;
-    }
-
-    public void setCompanyRegion(String companyRegion) {
         this.companyRegion = companyRegion;
     }
 

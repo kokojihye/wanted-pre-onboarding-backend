@@ -1,5 +1,10 @@
 package com.wantedpreonboardingbackend.company.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class CompanyDTO {
     private int companyId;
     private String companyName;
@@ -12,38 +17,6 @@ public class CompanyDTO {
         this.companyId = companyId;
         this.companyName = companyName;
         this.companyNation = companyNation;
-        this.companyRegion = companyRegion;
-    }
-
-    public int getCompanyId() {
-        return companyId;
-    }
-
-    public void setCompanyId(int companyId) {
-        this.companyId = companyId;
-    }
-
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public String getCompanyNation() {
-        return companyNation;
-    }
-
-    public void setCompanyNation(String companyNation) {
-        this.companyNation = companyNation;
-    }
-
-    public String getCompanyRegion() {
-        return companyRegion;
-    }
-
-    public void setCompanyRegion(String companyRegion) {
         this.companyRegion = companyRegion;
     }
 
