@@ -5,10 +5,12 @@ import com.wantedpreonboardingbackend.company.entity.Company;
 import com.wantedpreonboardingbackend.company.repository.CompanyRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class CompanyService {
     private final CompanyRepository companyRepository;
     private final ModelMapper modelMapper;

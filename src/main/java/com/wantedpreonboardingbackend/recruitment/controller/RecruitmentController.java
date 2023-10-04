@@ -18,8 +18,8 @@ public class RecruitmentController {
         this.recruitmentService = recruitmentService;
     }
 
-    @GetMapping("/jobSeeker")
-    public String findRecruitmentList(Model model) {
+    @GetMapping("/read")
+    public String readRecruitment(Model model) {
         List<RecruitmentDTO> recruitmentList = recruitmentService.recruitmentList();
         model.addAttribute("recruitmentList", recruitmentList);
         return "jobSeeker/readRecruitmentList";
@@ -28,7 +28,8 @@ public class RecruitmentController {
     @GetMapping(value = "/create")
     public String createNewRecruitment(RecruitmentDTO newRecruitment) {
         recruitmentService.createNewRecruitment(newRecruitment);
-        return "redirect:/company/createRecruitment";
+        return "/company/createRecruitment";
     }
+
 
 }

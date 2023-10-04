@@ -8,12 +8,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
+
 @RequestMapping("/company")
 @Controller
 public class CompanyController {
     @GetMapping(value = "/menu")
-    public String companyMenu() {
-        return("company/menu");
+    public String companyMenu(Model model) {
+        List<CompanyDTO> companyList = companyService.findCompanyList();
+        model.addAttribute("companyList", companyList);
+        return"company/menu";
     }
 
     private final CompanyService companyService;
