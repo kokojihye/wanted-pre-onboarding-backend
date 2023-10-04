@@ -1,4 +1,4 @@
-package com.wantedpreonboardingbackend.main;
+package com.wantedpreonboardingbackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

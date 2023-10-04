@@ -19,4 +19,8 @@ public class MainController {
         return ("main/main");
     }
 
+    @GetMapping(value = "/jobSeeker")
+    public String jobSeekerMenu() {
+        return "jobSeeker/menu";
+    }
 }
