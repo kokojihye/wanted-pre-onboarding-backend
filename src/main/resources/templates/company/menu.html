@@ -7,11 +7,23 @@
 <body>
 <div th:replace = "common/companyHeader.html"></div>
 <h2>Company Menu</h2>
-    <label>회사 번호 : </label>
-    <input type="number" name="companyId">
-    <input type="submit" value="확인"><br>
-    <button onclick="location.href='/recruitment/create'">채용공고 등록하기</button>
-    <button onclick="location.href='/recruitment/update'">채용공고 수정하기</button>
-    <button onclick="location.href='/recruitment/delete'">채용공고 삭제하기</button>
+<button onclick="location.href='/recruitment/create'">채용공고 등록하기</button><br>
+<button onclick="location.href='/recruitment/update'">채용공고 수정하기</button><br>
+<button onclick="location.href='/recruitment/delete'">채용공고 삭제하기</button><br>
+<h2>Company List</h2>
+    <table>
+        <tr>
+            <th>회사_id</th>
+            <th>회사명</th>
+            <th>국가</th>
+            <th>지역</th>
+        </tr>
+        <tr th:each="company : ${companyList}">
+            <td th:text="${company.companyId}"></td>
+            <td th:text="${company.companyName}"></td>
+            <td th:text="${company.companyNation}"></td>
+            <td th:text="${company.companyRegion}"></td>
+        </tr>
+    </table>
 </body>
 </html>

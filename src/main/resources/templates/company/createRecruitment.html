@@ -5,7 +5,41 @@
     <title>Title</title>
 </head>
 <body>
-<div th:replace = "common/companyHeader.html"></div>
+    <div th:replace = "common/companyHeader.html"></div>
+    <h2>채용공고 등록하기</h2>
+
+    <form action="/recruitment/create" method="get">
+        <label>채용포지션 : </label><input type="text" name="position"><br>
+        <label>채용보상금 : </label><input type="number" name="reward"><br>
+        <label>채용내용 : </label><input type="text" name="detail"><br>
+        <label>사용기술 : </label><input type="text" name="techStack"><br>
+        <label>회사_id : </label><input type="number" name="companyId"><br>
+        <input type="submit" value="등록">
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // 회사 ID 입력 필드 값이 변경될 때 실행되는 함수
+        $('#companyId').change(function() {
+            var companyId = $(this).val(); // 입력된 회사 ID 가져오기
+
+            // AJAX를 사용하여 서버로 요청을 보냅니다.
+            $.ajax({
+                type: 'GET', // GET 또는 POST를 선택합니다.
+                url: '/getCompanyInfo/' + companyId, // 회사 정보를 가져올 엔드포인트 URL
+                dataType: 'json', // 응답 데이터 형식 (JSON 예상)
+                success: function(response) {
+                    alert("채용공고가 정상적으로 등록되었습니다!")
+                    // 서버에서 받은 응답을 처리하여 국가와 지역 정보를 업데이트합니다.
+                    $('#companyName').val(response.companyName);
+                    $('#nation').val(response.nation);
+                    $('#region').val(response.region);
+                },
+                error: function() {
+                    alert("채용공고가 등록되지 않았습니다.")
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
