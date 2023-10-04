@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CompanyDetail</title>
+</head>
+<body>
+  <div th:replace="common/jobSeekerHeader.html"></div>
+  <table>
+    <tr>
+      <th>회사 id</th>
+      <th>회사명</th>
+      <th>국가</th>
+      <th>지역</th>
+    </tr>
+
+    <tr th:each="company : ${companyList}">
+      <td th:text="${company.companyId}"></td>
+      <td th:text="${company.companyName}"></td>
+      <td th:text="${company.companyNation}"></td>
+      <td th:text="${company.companyRegion}"></td>
+    </tr>
+  </table>
+</body>
+</html>
