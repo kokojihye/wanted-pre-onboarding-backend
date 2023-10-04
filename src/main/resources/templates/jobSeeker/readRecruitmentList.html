@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>recruitmentList</title>
+</head>
+<body>
+<div th:replace="common/jobSeekerHeader.html"></div>
+<h1>전체 채용공고 표시(RecruitmentList)</h1>
+<table>
+    <tr>
+        <th>채용공고_id</th>
+        <th>회사_id</th>
+        <th>회사이름</th>
+        <th>국가</th>
+        <th>지역</th>
+        <th>채용포지션</th>
+        <th>채용보상금</th>
+        <th>채용내용</th>
+        <th>사용기술</th>
+    </tr>
+
+    <tr th:each="recruitment : ${recruitmentList}">
+        <td th:text="${ recruitment.recruitmentId }"></td>
+        <td th:text="${ recruitment.companyId}"></td>
+        <td th:text="${recruitment.companyNation}"></td>
+        <td th:text="${recruitment.companyRegion}"></td>
+        <td th:text="${recruitment.position}"></td>
+        <td th:text="${recruitment.reward}"></td>
+        <td th:text="${recruitment.details}"></td>
+        <td th:text="${recruitment.techStack}"></td>
+    </tr>
+</table>
+</body>
+</html>
