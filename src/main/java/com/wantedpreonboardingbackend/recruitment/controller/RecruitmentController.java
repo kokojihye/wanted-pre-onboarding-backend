@@ -18,6 +18,7 @@ public class RecruitmentController {
         this.recruitmentService = recruitmentService;
     }
 
+    //채용공고 조회
     @GetMapping("/read")
     public String readRecruitment(Model model) {
         List<RecruitmentDTO> recruitmentList = recruitmentService.recruitmentList();
@@ -25,6 +26,7 @@ public class RecruitmentController {
         return "jobSeeker/readRecruitmentList";
     }
 
+    //채용공고 등록
     @GetMapping(value = "/create")
     public String createNewRecruitment(RecruitmentDTO newRecruitment) {
         recruitmentService.createNewRecruitment(newRecruitment);
